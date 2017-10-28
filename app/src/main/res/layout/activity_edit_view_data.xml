@@ -139,7 +139,7 @@ android:id="@+id/scrollView">
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="UPDATE"
+                    android:text="Update"
                     android:id="@+id/btnUpdate"
                     android:layout_gravity="center_horizontal"
                     android:layout_weight="1"
@@ -149,8 +149,8 @@ android:id="@+id/scrollView">
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DELETE"
-                    android:id="@+id/btnDELETE"
+                    android:text="Delete"
+                    android:id="@+id/btnDelete"
                     android:layout_weight="1"
                     android:clickable="true"
                     android:backgroundTint="@android:color/holo_red_light" />
