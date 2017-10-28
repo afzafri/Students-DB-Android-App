@@ -1,5 +1,6 @@
 package com.afifzafri.studentsdb;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -42,5 +43,21 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
+    }
+    // function for insert data into db
+    public boolean insertData (String id, String name, String ic, String dob, String address,
+                               String program, String phone, String email) {
+        SQLiteDatabase db = this.getWritableDatabase(); // open db for writing
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("id", id);
+        contentValues.put("name", name);
+        contentValues.put("ic", ic);
+        contentValues.put("dob", dob);
+        contentValues.put("address", address);
+        contentValues.put("program", program);
+        contentValues.put("phone", phone);
+        contentValues.put("email", email);
+        db.insert(TABLE_NAME, null, contentValues);
+        return true;
     }
 }
