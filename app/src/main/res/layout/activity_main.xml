@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Insert Data"
-                android:id="@+id/btnInsertPage"
+                android:id="@+id/btnInsertDataPage"
                 android:textSize="25dp"
                 android:background="@android:color/holo_orange_light"
                 android:layout_margin="10dp"
