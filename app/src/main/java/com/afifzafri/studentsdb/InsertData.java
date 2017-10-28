@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class InsertData extends AppCompatActivity {
 
@@ -29,6 +30,7 @@ public class InsertData extends AppCompatActivity {
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // set text to empty value (clear)
                 studID.setText("");
                 name.setText("");
                 ic.setText("");
@@ -37,6 +39,9 @@ public class InsertData extends AppCompatActivity {
                 program.setText("");
                 phone.setText("");
                 email.setText("");
+
+                // show toast message
+                Toast.makeText(getApplicationContext(), "Cleared",Toast.LENGTH_SHORT).show();
             }
         });
 
