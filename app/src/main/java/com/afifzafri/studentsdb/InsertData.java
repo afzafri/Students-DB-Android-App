@@ -64,7 +64,24 @@ public class InsertData extends AppCompatActivity {
                 String phones = phone.getText().toString();
                 String emails = email.getText().toString();
 
+                if(mydb.insertData(id,names,ics,dobs,addr,prog,phones,emails))
+                {
+                    Toast.makeText(getApplicationContext(), "Data save successfully",Toast.LENGTH_SHORT).show();
 
+                    // set text to empty value (clear)
+                    studID.setText("");
+                    name.setText("");
+                    ic.setText("");
+                    dob.setText("");
+                    address.setText("");
+                    program.setText("");
+                    phone.setText("");
+                    email.setText("");
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
