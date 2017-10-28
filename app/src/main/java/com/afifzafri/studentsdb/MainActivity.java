@@ -1,5 +1,6 @@
 package com.afifzafri.studentsdb;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // get the buttons
-        Button btnInsertDataPage = (Button)findViewById(R.id.btnSearchDataPage);
+        Button btnInsertDataPage = (Button)findViewById(R.id.btnInsertDataPage);
         Button btnViewDataPage = (Button)findViewById(R.id.btnViewDataPage);
         Button btnSearchDataPage = (Button)findViewById(R.id.btnSearchDataPage);
 
@@ -21,7 +22,9 @@ public class MainActivity extends AppCompatActivity {
         btnInsertDataPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // action here
+                // start new intent, for opening activity
+                Intent intentPage = new Intent(MainActivity.this, InsertData.class);
+                startActivity(intentPage);
             }
         });
 
@@ -29,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         btnViewDataPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // action here
+                Intent intentPage = new Intent(MainActivity.this, ViewData.class);
+                startActivity(intentPage);
             }
         });
 
@@ -37,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
         btnSearchDataPage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // action here
+                Intent intentPage = new Intent(MainActivity.this, SearchData.class);
+                startActivity(intentPage);
             }
         });
     }
