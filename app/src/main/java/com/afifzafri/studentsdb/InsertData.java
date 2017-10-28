@@ -9,10 +9,16 @@ import android.widget.Toast;
 
 public class InsertData extends AppCompatActivity {
 
+    // create object for Database Helper class
+    DBHelper mydb;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_data);
+
+        // create object
+        mydb = new DBHelper(this);
 
         // initialize input fields and buttons
         final EditText studID = (EditText)findViewById(R.id.editStudID);
