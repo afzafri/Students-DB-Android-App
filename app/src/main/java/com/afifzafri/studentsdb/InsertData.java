@@ -14,14 +14,14 @@ public class InsertData extends AppCompatActivity {
         setContentView(R.layout.activity_insert_data);
 
         // initialize input fields and buttons
-        EditText studID = (EditText)findViewById(R.id.editStudID);
-        EditText name = (EditText)findViewById(R.id.editName);
-        EditText ic = (EditText)findViewById(R.id.editIC);
-        EditText dob = (EditText)findViewById(R.id.editDOB);
-        EditText address = (EditText)findViewById(R.id.editAddress);
-        EditText program = (EditText)findViewById(R.id.editProgram);
-        EditText phone = (EditText)findViewById(R.id.editPhone);
-        EditText email = (EditText)findViewById(R.id.editEmail);
+        final EditText studID = (EditText)findViewById(R.id.editStudID);
+        final EditText name = (EditText)findViewById(R.id.editName);
+        final EditText ic = (EditText)findViewById(R.id.editIC);
+        final EditText dob = (EditText)findViewById(R.id.editDOB);
+        final EditText address = (EditText)findViewById(R.id.editAddress);
+        final EditText program = (EditText)findViewById(R.id.editProgram);
+        final EditText phone = (EditText)findViewById(R.id.editPhone);
+        final EditText email = (EditText)findViewById(R.id.editEmail);
         Button btnClear = (Button)findViewById(R.id.btnClear);
         Button btnSave = (Button)findViewById(R.id.btnSave);
 
@@ -29,7 +29,14 @@ public class InsertData extends AppCompatActivity {
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // action here
+                studID.setText("");
+                name.setText("");
+                ic.setText("");
+                dob.setText("");
+                address.setText("");
+                program.setText("");
+                phone.setText("");
+                email.setText("");
             }
         });
 
