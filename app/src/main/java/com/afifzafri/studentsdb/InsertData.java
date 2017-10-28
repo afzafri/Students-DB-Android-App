@@ -61,7 +61,9 @@ public class InsertData extends AppCompatActivity {
                 String dobs = ic.getText().toString();
                 String addr = address.getText().toString();
                 String prog = program.getText().toString();
+                String phones = phone.getText().toString();
                 String emails = email.getText().toString();
+
 
             }
         });
