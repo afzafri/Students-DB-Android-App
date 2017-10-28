@@ -9,8 +9,66 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.afifzafri.studentsdb.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Insert Data"
+                android:id="@+id/btnInsertPage"
+                android:textSize="25dp"
+                android:background="@android:color/holo_orange_light"
+                android:layout_margin="10dp"
+                android:elegantTextHeight="false"
+                android:clickable="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="View Data"
+                android:id="@+id/btnViewDataPage"
+                android:textSize="25dp"
+                android:background="@android:color/holo_blue_bright"
+                android:layout_margin="10dp"
+                android:clickable="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Search Data"
+                android:id="@+id/btnSearchDataPage"
+                android:textSize="25dp"
+                android:background="@android:color/holo_red_light"
+                android:layout_margin="10dp"
+                android:clickable="true" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>
