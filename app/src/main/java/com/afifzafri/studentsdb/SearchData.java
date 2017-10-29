@@ -42,14 +42,29 @@ public class SearchData extends AppCompatActivity {
                 // access cursor data
                 Cursor cursor = mydb.searchData(studid);
                 cursor.moveToFirst();
+                String id = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_ID));
                 String name = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_NAME));
+                String ic = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_IC));
+                String dob = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_DOB));
+                String address = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_ADDRESS));
+                String program = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_PROGRAM));
+                String phone = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_PHONE));
+                String email = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EMAIL));
 
                 // close cursor
                 if (!cursor.isClosed())  {
                     cursor.close();
                 }
 
+                //append all the data
+                resID.setText(id);
                 resName.setText(name);
+                resIC.setText(ic);
+                resDOB.setText(dob);
+                resAddress.setText(address);
+                resProgram.setText(program);
+                resPhone.setText(phone);
+                resEmail.setText(email);
             }
         });
     }
