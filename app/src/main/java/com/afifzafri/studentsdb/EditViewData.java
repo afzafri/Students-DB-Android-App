@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +36,7 @@ public class EditViewData extends AppCompatActivity {
         final EditText editProgram = (EditText)findViewById(R.id.editProgram);
         final EditText editPhone = (EditText)findViewById(R.id.editPhone);
         final EditText editEmail = (EditText)findViewById(R.id.editEmail);
+        Button btnUpdate = (Button)findViewById(R.id.btnUpdate);
 
         Cursor cursor = mydb.searchData(studID);
         cursor.moveToFirst();
@@ -73,5 +76,30 @@ public class EditViewData extends AppCompatActivity {
         if (!cursor.isClosed())  {
             cursor.close();
         }
+
+        // action when update button clicked
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // get input text values
+                String id = editStudID.getText().toString();
+                String names = editName.getText().toString();
+                String ics = editIC.getText().toString();
+                String dobs = editDOB.getText().toString();
+                String addr = editAddress.getText().toString();
+                String prog = editProgram.getText().toString();
+                String phones = editPhone.getText().toString();
+                String emails = editEmail.getText().toString();
+
+                if(mydb.updateData(id,names,ics,dobs,addr,prog,phones,emails))
+                {
+                    Toast.makeText(getApplicationContext(), "Data updated successfully",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
