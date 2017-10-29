@@ -69,4 +69,21 @@ public class DBHelper extends SQLiteOpenHelper {
                 "' or name LIKE '%"+searchInput+"%'", null );
         return cursor;
     }
+
+    // function for update data
+    public boolean updateData (String id, String name, String ic, String dob, String address,
+                               String program, String phone, String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("id", id);
+        contentValues.put("name", name);
+        contentValues.put("ic", ic);
+        contentValues.put("dob", dob);
+        contentValues.put("address", address);
+        contentValues.put("program", program);
+        contentValues.put("phone", phone);
+        contentValues.put("email", email);
+        db.update(TABLE_NAME, contentValues, "id = "+id);
+        return true;
+    }
 }
