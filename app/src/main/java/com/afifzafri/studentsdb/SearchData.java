@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -46,7 +47,8 @@ public class SearchData extends AppCompatActivity {
                 // check if cursor return data or not (data found in db or not)
                 if(cursor.getCount() < 1)
                 {
-                    // empty
+                    // show toast message
+                    Toast.makeText(getApplicationContext(), "No data found",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -68,6 +70,9 @@ public class SearchData extends AppCompatActivity {
                     resProgram.setText(program);
                     resPhone.setText(phone);
                     resEmail.setText(email);
+
+                    // show toast message
+                    Toast.makeText(getApplicationContext(), "Data found",Toast.LENGTH_SHORT).show();
                 }
 
                 // close cursor
