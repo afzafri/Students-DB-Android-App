@@ -37,6 +37,7 @@ public class EditViewData extends AppCompatActivity {
         final EditText editPhone = (EditText)findViewById(R.id.editPhone);
         final EditText editEmail = (EditText)findViewById(R.id.editEmail);
         Button btnUpdate = (Button)findViewById(R.id.btnUpdate);
+        Button btnDelete = (Button)findViewById(R.id.btnDelete);
 
         Cursor cursor = mydb.searchData(studID);
         cursor.moveToFirst();
@@ -94,6 +95,22 @@ public class EditViewData extends AppCompatActivity {
                 if(mydb.updateData(id,names,ics,dobs,addr,prog,phones,emails))
                 {
                     Toast.makeText(getApplicationContext(), "Data updated successfully",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // action when delete button clicked
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id = editStudID.getText().toString(); // get id
+                if(mydb.deleteData(id))
+                {
+                    Toast.makeText(getApplicationContext(), "Data deleted successfully",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
