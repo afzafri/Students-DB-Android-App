@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class SearchData extends AppCompatActivity {
 
@@ -21,6 +24,14 @@ public class SearchData extends AppCompatActivity {
 
         EditText sid = (EditText)findViewById(R.id.editSearch);
         Button btnSearch = (Button)findViewById(R.id.btnSearch);
+        TextView resID = (TextView)findViewById(R.id.resStudID);
+        TextView resName = (TextView)findViewById(R.id.resName);
+        TextView resIC = (TextView)findViewById(R.id.resIC);
+        TextView resDOB = (TextView)findViewById(R.id.resDOB);
+        TextView resAddress = (TextView)findViewById(R.id.resAddress);
+        TextView resProgram = (TextView)findViewById(R.id.resProgram);
+        TextView resPhone = (TextView)findViewById(R.id.resPhone);
+        TextView resEmail = (TextView)findViewById(R.id.resEmail);
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
