@@ -15,7 +15,6 @@ import org.w3c.dom.Text;
 
 public class SearchData extends AppCompatActivity {
 
-    public static final String STUD_ID = "";
     // initialize object
     DBHelper mydb;
 
@@ -96,7 +95,7 @@ public class SearchData extends AppCompatActivity {
                 {
                     // intent to open new activity
                     Intent intentPage = new Intent(SearchData.this, EditViewData.class);
-                    intentPage.putExtra(STUD_ID,resStudID);
+                    intentPage.putExtra("STUD_ID",resStudID);
                     startActivity(intentPage);
                 }
                 else
