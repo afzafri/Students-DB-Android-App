@@ -38,7 +38,18 @@ public class SearchData extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String studid = sid.getText().toString();
+
+                // access cursor data
                 Cursor cursor = mydb.searchData(studid);
+                cursor.moveToFirst();
+                String name = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_NAME));
+
+                // close cursor
+                if (!cursor.isClosed())  {
+                    cursor.close();
+                }
+
+                resName.setText(name);
             }
         });
     }
