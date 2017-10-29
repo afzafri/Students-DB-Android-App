@@ -12,7 +12,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "StudentsDB.db";
     public static final String TABLE_NAME = "students";
-    public static final String COLUMN_ID = "id";
+    public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_IC = "ic";
     public static final String COLUMN_DOB = "dob";
@@ -50,7 +50,7 @@ public class DBHelper extends SQLiteOpenHelper {
                                String program, String phone, String email) {
         SQLiteDatabase db = this.getWritableDatabase(); // open db for writing
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", id);
+        contentValues.put("_id", id);
         contentValues.put("name", name);
         contentValues.put("ic", ic);
         contentValues.put("dob", dob);
@@ -65,14 +65,14 @@ public class DBHelper extends SQLiteOpenHelper {
     // function to select data for list
     public Cursor listAllData () {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select "+COLUMN_NAME+", "+COLUMN_ID+" from "+TABLE_NAME, null);
+        Cursor cursor = db.rawQuery("select "+COLUMN_ID+", "+COLUMN_NAME+", "+COLUMN_ID+" from "+TABLE_NAME, null);
         return cursor;
     }
 
     // function for search data
     public Cursor searchData (String searchInput) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery( "select * from "+TABLE_NAME+" where id = '"+searchInput+
+        Cursor cursor = db.rawQuery( "select * from "+TABLE_NAME+" where _id = '"+searchInput+
                 "' or name LIKE '%"+searchInput+"%'", null );
         return cursor;
     }
@@ -82,7 +82,7 @@ public class DBHelper extends SQLiteOpenHelper {
                                String program, String phone, String email) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", id);
+        contentValues.put("_id", id);
         contentValues.put("name", name);
         contentValues.put("ic", ic);
         contentValues.put("dob", dob);
@@ -90,14 +90,14 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("program", program);
         contentValues.put("phone", phone);
         contentValues.put("email", email);
-        db.update(TABLE_NAME, contentValues, "id = ? ", new String[] {id} );
+        db.update(TABLE_NAME, contentValues, "_id = ? ", new String[] {id} );
         return true;
     }
 
     // function for delete data
     public boolean deleteData (String id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, "id = ? ", new String[] {id} );
+        db.delete(TABLE_NAME, "_id = ? ", new String[] {id} );
         return true;
     }
 }
