@@ -7,10 +7,11 @@
         android:id="@+id/display_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="28dip" />
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
+
     <TextView
         android:id="@+id/display_studid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="28dip" />
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 </LinearLayout>
