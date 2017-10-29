@@ -16,6 +16,8 @@ public class EditViewData extends AppCompatActivity {
         String studID = intentPage.getStringExtra("STUD_ID");
 
         EditText editStudID = (EditText)findViewById(R.id.editStudID);
+        editStudID.setFocusable(false); // disable input
+
         editStudID.setText(studID);
     }
 }
