@@ -26,6 +26,7 @@ public class SearchData extends AppCompatActivity {
 
         final EditText sid = (EditText)findViewById(R.id.editSearch);
         ImageButton btnSearch = (ImageButton)findViewById(R.id.btnSearch);
+        ImageButton btnEdit = (ImageButton)findViewById(R.id.btnEdit);
         final TextView resID = (TextView)findViewById(R.id.resStudID);
         final TextView resName = (TextView)findViewById(R.id.resName);
         final TextView resIC = (TextView)findViewById(R.id.resIC);
@@ -35,6 +36,7 @@ public class SearchData extends AppCompatActivity {
         final TextView resPhone = (TextView)findViewById(R.id.resPhone);
         final TextView resEmail = (TextView)findViewById(R.id.resEmail);
 
+        // action when search button clicked
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +80,24 @@ public class SearchData extends AppCompatActivity {
                 // close cursor
                 if (!cursor.isClosed())  {
                     cursor.close();
+                }
+            }
+        });
+
+        // action when edit button clicked
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // allow edit only if student id available
+                if(resID.getText().toString() != "")
+                {
+
+                }
+                else
+                {
+                    // show toast message
+                    Toast.makeText(getApplicationContext(), "No data to edit",Toast.LENGTH_SHORT).show();
                 }
             }
         });
