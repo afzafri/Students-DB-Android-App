@@ -155,6 +155,15 @@
                 android:id="@+id/resEmail"
                 android:textStyle="bold" />
 
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton"
+                android:layout_gravity="center_horizontal"
+                android:src="@android:drawable/ic_menu_edit"
+                android:clickable="true"
+                android:backgroundTint="@android:color/holo_orange_light" />
+
         </LinearLayout>
 
     </RelativeLayout>
