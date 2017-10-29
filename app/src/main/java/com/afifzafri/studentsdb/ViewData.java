@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-public class ViewData extends ListActivity {
+public class ViewData extends AppCompatActivity {
 
     DBHelper mydb;
 
@@ -22,11 +22,11 @@ public class ViewData extends ListActivity {
 
         Cursor cursor = mydb.listAllData(); // get data from db
 
-        String[] fromColumns = {DBHelper.COLUMN_NAME, DBHelper.COLUMN_ID};
-        int[] toViews = {R.id.display_name, R.id.display_studid};
-
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.studid_name_layout, cursor, fromColumns, toViews, 0);
-        ListView listdata = getListView();
-        listdata.setAdapter(adapter);
+        // Find ListView to populate
+        ListView listData = (ListView) findViewById(R.id.listData);
+        // Setup cursor adapter, pass the cursor
+        ListDataCursorAdapter listdataAdapter = new ListDataCursorAdapter(this, cursor);
+        // Attach cursor adapter to the ListView
+        listData.setAdapter(listdataAdapter);
     }
 }
