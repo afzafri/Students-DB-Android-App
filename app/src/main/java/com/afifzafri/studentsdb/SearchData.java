@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -23,7 +24,7 @@ public class SearchData extends AppCompatActivity {
         mydb = new DBHelper(this);
 
         final EditText sid = (EditText)findViewById(R.id.editSearch);
-        Button btnSearch = (Button)findViewById(R.id.btnSearch);
+        ImageButton btnSearch = (ImageButton)findViewById(R.id.btnSearch);
         final TextView resID = (TextView)findViewById(R.id.resStudID);
         final TextView resName = (TextView)findViewById(R.id.resName);
         final TextView resIC = (TextView)findViewById(R.id.resIC);
