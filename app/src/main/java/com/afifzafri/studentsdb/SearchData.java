@@ -15,7 +15,7 @@ import org.w3c.dom.Text;
 
 public class SearchData extends AppCompatActivity {
 
-    private static final String STUD_ID = "";
+    public static final String STUD_ID = "";
     // initialize object
     DBHelper mydb;
 
