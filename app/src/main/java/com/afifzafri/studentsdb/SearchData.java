@@ -22,16 +22,16 @@ public class SearchData extends AppCompatActivity {
 
         mydb = new DBHelper(this);
 
-        EditText sid = (EditText)findViewById(R.id.editSearch);
+        final EditText sid = (EditText)findViewById(R.id.editSearch);
         Button btnSearch = (Button)findViewById(R.id.btnSearch);
-        TextView resID = (TextView)findViewById(R.id.resStudID);
-        TextView resName = (TextView)findViewById(R.id.resName);
-        TextView resIC = (TextView)findViewById(R.id.resIC);
-        TextView resDOB = (TextView)findViewById(R.id.resDOB);
-        TextView resAddress = (TextView)findViewById(R.id.resAddress);
-        TextView resProgram = (TextView)findViewById(R.id.resProgram);
-        TextView resPhone = (TextView)findViewById(R.id.resPhone);
-        TextView resEmail = (TextView)findViewById(R.id.resEmail);
+        final TextView resID = (TextView)findViewById(R.id.resStudID);
+        final TextView resName = (TextView)findViewById(R.id.resName);
+        final TextView resIC = (TextView)findViewById(R.id.resIC);
+        final TextView resDOB = (TextView)findViewById(R.id.resDOB);
+        final TextView resAddress = (TextView)findViewById(R.id.resAddress);
+        final TextView resProgram = (TextView)findViewById(R.id.resProgram);
+        final TextView resPhone = (TextView)findViewById(R.id.resPhone);
+        final TextView resEmail = (TextView)findViewById(R.id.resEmail);
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
