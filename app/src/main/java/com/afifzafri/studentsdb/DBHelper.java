@@ -83,7 +83,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("program", program);
         contentValues.put("phone", phone);
         contentValues.put("email", email);
-        db.update(TABLE_NAME, contentValues, "id = "+id);
+        db.update(TABLE_NAME, contentValues, "id = ? ", new String[] {id} );
         return true;
     }
 }
