@@ -32,7 +32,8 @@ android:id="@+id/scrollView">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none"
-                android:id="@+id/editStudID" />
+                android:id="@+id/editStudID"
+                android:backgroundTint="@color/dim_foreground_disabled_material_dark" />
 
             <TextView
                 android:layout_width="wrap_content"
