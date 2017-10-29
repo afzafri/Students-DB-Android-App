@@ -58,7 +58,7 @@ public class InsertData extends AppCompatActivity {
                 String id = studID.getText().toString();
                 String names = name.getText().toString();
                 String ics = ic.getText().toString();
-                String dobs = ic.getText().toString();
+                String dobs = dob.getText().toString();
                 String addr = address.getText().toString();
                 String prog = program.getText().toString();
                 String phones = phone.getText().toString();
