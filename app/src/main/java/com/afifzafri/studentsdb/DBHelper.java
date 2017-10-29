@@ -62,10 +62,10 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    // function to select all data
-    public Cursor getAllData () {
+    // function to select data for list
+    public Cursor listAllData () {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("select * from "+TABLE_NAME, null);
+        Cursor cursor = db.rawQuery("select "+COLUMN_NAME+", "+COLUMN_ID+" from "+TABLE_NAME, null);
         return cursor;
     }
 
