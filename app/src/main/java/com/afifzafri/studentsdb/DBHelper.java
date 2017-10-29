@@ -2,6 +2,7 @@ package com.afifzafri.studentsdb;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -59,5 +60,12 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("email", email);
         db.insert(TABLE_NAME, null, contentValues);
         return true;
+    }
+
+    // function for search data
+    public Cursor searchData (String id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery( "select * from "+TABLE_NAME+" where id = "+id, null );
+        return cursor;
     }
 }
