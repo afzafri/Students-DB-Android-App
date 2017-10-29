@@ -10,3 +10,4 @@ A simple native Android app created using Android Studio during my learning proc
 - [x] Delete data
 - [ ] Form input validations (check empty field, input type etc)
 - [ ] Confirmation dialogs (confirm edit, delete etc)
+- [ ] Contact student (open whatsapp, call, email etc)
