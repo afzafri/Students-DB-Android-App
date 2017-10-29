@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/editSearch"
                     android:layout_weight="1"
-                    android:hint="Insert Student ID" />
+                    android:hint="Search Student ID or Name" />
 
                 <ImageButton
                     android:layout_width="130dp"

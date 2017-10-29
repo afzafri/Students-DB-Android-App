@@ -63,9 +63,10 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     // function for search data
-    public Cursor searchData (String id) {
+    public Cursor searchData (String searchInput) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery( "select * from "+TABLE_NAME+" where id = "+id, null );
+        Cursor cursor = db.rawQuery( "select * from "+TABLE_NAME+" where id = '"+searchInput+
+                "' or name LIKE '%"+searchInput+"%'", null );
         return cursor;
     }
 }
