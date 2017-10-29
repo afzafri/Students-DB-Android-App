@@ -1,5 +1,6 @@
 package com.afifzafri.studentsdb;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import org.w3c.dom.Text;
 
 public class SearchData extends AppCompatActivity {
 
+    private static final String STUD_ID = "";
     // initialize object
     DBHelper mydb;
 
@@ -88,11 +90,14 @@ public class SearchData extends AppCompatActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String resStudID = resID.getText().toString();
                 // allow edit only if student id available
-                if(resID.getText().toString() != "")
+                if(resStudID != "")
                 {
-
+                    // intent to open new activity
+                    Intent intentPage = new Intent(SearchData.this, EditViewData.class);
+                    intentPage.putExtra(STUD_ID,resStudID);
+                    startActivity(intentPage);
                 }
                 else
                 {
