@@ -36,7 +36,7 @@
                 <ImageButton
                     android:layout_width="130dp"
                     android:layout_height="48dp"
-                    android:id="@+id/imageButton"
+                    android:id="@+id/btnSearch"
                     android:src="@android:drawable/ic_search_category_default"
                     android:backgroundTint="@android:color/holo_green_light"
                     android:layout_weight="0.08" />
