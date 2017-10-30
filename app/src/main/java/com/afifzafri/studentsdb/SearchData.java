@@ -33,6 +33,7 @@ public class SearchData extends AppCompatActivity {
         final EditText sid = (EditText)findViewById(R.id.editSearch);
         ImageButton btnSearch = (ImageButton)findViewById(R.id.btnSearch);
         ImageButton btnCall = (ImageButton)findViewById(R.id.btnCall);
+        ImageButton btnMsg = (ImageButton)findViewById(R.id.btnMsg);
         final ImageButton btnEdit = (ImageButton)findViewById(R.id.btnEdit);
         final TextView resID = (TextView)findViewById(R.id.resStudID);
         final TextView resName = (TextView)findViewById(R.id.resName);
@@ -180,6 +181,16 @@ public class SearchData extends AppCompatActivity {
                 Intent intentPage = new Intent(Intent.ACTION_DIAL);
                 intentPage.setData(Uri.parse("tel:"+resPhone.getText().toString()));
                 startActivity(intentPage);
+            }
+        });
+
+        // open messaging app (default or whatsapp, user can choose)
+        btnMsg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("smsto:" + resPhone.getText().toString());
+                Intent i = new Intent(Intent.ACTION_SENDTO, uri);
+                startActivity(Intent.createChooser(i, ""));
             }
         });
 
