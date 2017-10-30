@@ -182,6 +182,15 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/btnEmail"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/sym_action_email"
+                    android:clickable="true"
+                    android:backgroundTint="@android:color/holo_purple" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:id="@+id/btnMap"
                     android:layout_weight="1"
                     android:clickable="true"
