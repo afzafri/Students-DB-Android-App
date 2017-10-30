@@ -163,9 +163,9 @@
 
                 <ImageButton
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/btnCall"
-                    android:src="@android:drawable/stat_sys_phone_call"
+                    android:src="@android:drawable/ic_menu_call"
                     android:clickable="true"
                     android:backgroundTint="@android:color/holo_blue_bright"
                     android:layout_weight="1" />
@@ -184,7 +184,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/btnEmail"
                     android:layout_weight="1"
-                    android:src="@android:drawable/sym_action_email"
+                    android:src="@android:drawable/ic_dialog_email"
                     android:clickable="true"
                     android:backgroundTint="@android:color/holo_purple" />
 
