@@ -5,7 +5,7 @@ A simple native Android app created using Android Studio during my learning proc
 - [x] User Interfaces (Activities)
 - [x] Insert data
 - [x] View list of data (list view)
-- [ ] On click list view data, show search page
+- [x] On click list view data, show search page
 - [x] Search data
 - [x] Update data
 - [x] Delete data
