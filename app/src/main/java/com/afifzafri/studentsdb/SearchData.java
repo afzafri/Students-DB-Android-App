@@ -2,6 +2,7 @@ package com.afifzafri.studentsdb;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +32,7 @@ public class SearchData extends AppCompatActivity {
 
         final EditText sid = (EditText)findViewById(R.id.editSearch);
         ImageButton btnSearch = (ImageButton)findViewById(R.id.btnSearch);
+        ImageButton btnCall = (ImageButton)findViewById(R.id.btnCall);
         final ImageButton btnEdit = (ImageButton)findViewById(R.id.btnEdit);
         final TextView resID = (TextView)findViewById(R.id.resStudID);
         final TextView resName = (TextView)findViewById(R.id.resName);
@@ -170,5 +172,16 @@ public class SearchData extends AppCompatActivity {
                 }
             }
         });
+
+        // open dialer when call button clicked
+        btnCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentPage = new Intent(Intent.ACTION_DIAL);
+                intentPage.setData(Uri.parse("tel:"+resPhone.getText().toString()));
+                startActivity(intentPage);
+            }
+        });
+
     }
 }
