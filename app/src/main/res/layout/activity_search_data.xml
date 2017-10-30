@@ -162,7 +162,8 @@
                 android:layout_gravity="center_horizontal"
                 android:src="@android:drawable/ic_menu_edit"
                 android:clickable="true"
-                android:backgroundTint="@android:color/holo_orange_light" />
+                android:backgroundTint="@android:color/holo_orange_light"
+                android:layout_marginTop="40dp" />
 
         </LinearLayout>
 
