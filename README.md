@@ -1,6 +1,7 @@
 # Students DB Android App
-A simple native Android app created using Android Studio during my learning process. I wanted to learn how to develop a native Android app, so I created this app to include all the basic functionalities.<br>
-This app included SQLite Database integration with basic CRUD functionality. 
+- A simple native Android app created using Android Studio during my learning process. I wanted to learn how to develop a native Android app, so I created this app to include all the basic functionalities.
+- This app included SQLite Database integration with basic CRUD functionality. 
+- This app also focused on the Android Activity Intent. I used the Intent to launch different activities, and also launch other apps such as Whatsapp, Dialer and Google Map.
 
 # Usage
 - Installation
