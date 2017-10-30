@@ -44,6 +44,9 @@ public class SearchData extends AppCompatActivity {
         // check if intent send an id value, populate the result
         if(intstudID != null)
         {
+            sid.setVisibility(View.GONE);
+            btnSearch.setVisibility(View.GONE);
+
             // access cursor data
             Cursor cursor = mydb.searchData(intstudID);
             cursor.moveToFirst();
