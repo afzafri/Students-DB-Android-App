@@ -2,6 +2,7 @@ package com.afifzafri.studentsdb;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -64,24 +65,74 @@ public class InsertData extends AppCompatActivity {
                 String phones = phone.getText().toString();
                 String emails = email.getText().toString();
 
-                if(mydb.insertData(id,names,ics,dobs,addr,prog,phones,emails))
-                {
-                    Toast.makeText(getApplicationContext(), "Data save successfully",Toast.LENGTH_SHORT).show();
+                if(!checkIsEmpty()) {
+                    if (mydb.insertData(id, names, ics, dobs, addr, prog, phones, emails)) {
+                        Toast.makeText(getApplicationContext(), "Data save successfully", Toast.LENGTH_SHORT).show();
 
-                    // set text to empty value (clear)
-                    studID.setText("");
-                    name.setText("");
-                    ic.setText("");
-                    dob.setText("");
-                    address.setText("");
-                    program.setText("");
-                    phone.setText("");
-                    email.setText("");
+                        // set text to empty value (clear)
+                        studID.setText("");
+                        name.setText("");
+                        ic.setText("");
+                        dob.setText("");
+                        address.setText("");
+                        program.setText("");
+                        phone.setText("");
+                        email.setText("");
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else
                 {
                     Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
                 }
+            }
+
+            // function for text field validation, check if empty or not
+            public boolean checkIsEmpty(){
+                boolean res = false;
+                if(TextUtils.isEmpty(studID.getText()))
+                {
+                    studID.setError("Student ID cannot be empty.");
+                    res = true;
+                }
+                if(TextUtils.isEmpty(name.getText()))
+                {
+                    name.setError("Name cannot be empty.");
+                    res = true;
+                }
+                if(TextUtils.isEmpty(ic.getText()))
+                {
+                    ic.setError("Identification Card number cannot be empty.");
+                    res = true;
+                }
+                if(TextUtils.isEmpty(dob.getText()))
+                {
+                    dob.setError("Date of Birth cannot be empty.");
+                    res = true;
+                }
+                if(TextUtils.isEmpty(address.getText()))
+                {
+                    address.setError("Address cannot be empty.");
+                    res = true;
+                }
+                if(TextUtils.isEmpty(program.getText()))
+                {
+                    program.setError("Program cannot be empty.");
+                    res = true;
+                }
+                if(TextUtils.isEmpty(phone.getText()))
+                {
+                    phone.setError("Phone number cannot be empty.");
+                    res = true;
+                }
+                if(TextUtils.isEmpty(email.getText()))
+                {
+                    email.setError("Email address cannot be empty.");
+                    res = true;
+                }
+
+                return res;
             }
         });
 
