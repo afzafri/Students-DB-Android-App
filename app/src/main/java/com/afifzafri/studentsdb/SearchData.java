@@ -35,6 +35,7 @@ public class SearchData extends AppCompatActivity {
         ImageButton btnCall = (ImageButton)findViewById(R.id.btnCall);
         ImageButton btnMsg = (ImageButton)findViewById(R.id.btnMsg);
         ImageButton btnEmail = (ImageButton)findViewById(R.id.btnEmail);
+        ImageButton btnMap = (ImageButton)findViewById(R.id.btnMap);
         final ImageButton btnEdit = (ImageButton)findViewById(R.id.btnEdit);
         final TextView resID = (TextView)findViewById(R.id.resStudID);
         final TextView resName = (TextView)findViewById(R.id.resName);
@@ -202,6 +203,17 @@ public class SearchData extends AppCompatActivity {
                 Uri uri = Uri.parse("mailto:" + resEmail.getText().toString());
                 Intent i = new Intent(Intent.ACTION_SENDTO, uri);
                 startActivity(Intent.createChooser(i, ""));
+            }
+        });
+
+        // launch Google Map and search the address
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q="+resAddress.getText().toString());
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
             }
         });
 
