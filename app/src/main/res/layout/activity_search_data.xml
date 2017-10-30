@@ -155,15 +155,48 @@
                 android:id="@+id/resEmail"
                 android:textStyle="bold" />
 
-            <ImageButton
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnEdit"
-                android:layout_gravity="center_horizontal"
-                android:src="@android:drawable/ic_menu_edit"
-                android:clickable="true"
-                android:backgroundTint="@android:color/holo_orange_light"
-                android:layout_marginTop="40dp" />
+                android:layout_marginTop="30dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/btnCall"
+                    android:src="@android:drawable/stat_sys_phone_call"
+                    android:clickable="true"
+                    android:backgroundTint="@android:color/holo_blue_bright"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnMsg"
+                    android:layout_weight="1"
+                    android:src="@android:drawable/sym_action_chat"
+                    android:clickable="true"
+                    android:backgroundTint="@android:color/holo_green_light" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnMap"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:src="@android:drawable/ic_dialog_map"
+                    android:backgroundTint="@android:color/holo_red_light" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnEdit"
+                    android:src="@android:drawable/ic_menu_edit"
+                    android:clickable="true"
+                    android:backgroundTint="@android:color/holo_orange_light"
+                    android:layout_weight="1" />
+            </LinearLayout>
 
         </LinearLayout>
 
