@@ -31,7 +31,7 @@ public class SearchData extends AppCompatActivity {
 
         final EditText sid = (EditText)findViewById(R.id.editSearch);
         ImageButton btnSearch = (ImageButton)findViewById(R.id.btnSearch);
-        ImageButton btnEdit = (ImageButton)findViewById(R.id.btnEdit);
+        final ImageButton btnEdit = (ImageButton)findViewById(R.id.btnEdit);
         final TextView resID = (TextView)findViewById(R.id.resStudID);
         final TextView resName = (TextView)findViewById(R.id.resName);
         final TextView resIC = (TextView)findViewById(R.id.resIC);
@@ -41,9 +41,13 @@ public class SearchData extends AppCompatActivity {
         final TextView resPhone = (TextView)findViewById(R.id.resPhone);
         final TextView resEmail = (TextView)findViewById(R.id.resEmail);
 
+        // hide edit button
+        btnEdit.setVisibility(View.GONE);
+
         // check if intent send an id value, populate the result
         if(intstudID != null)
         {
+            // if come from view data activity, hide the search
             sid.setVisibility(View.GONE);
             btnSearch.setVisibility(View.GONE);
 
@@ -70,6 +74,9 @@ public class SearchData extends AppCompatActivity {
             resPhone.setText(phone);
             resEmail.setText(email);
 
+            // show edit button
+            btnEdit.setVisibility(View.VISIBLE);
+
             // show toast message
             Toast.makeText(getApplicationContext(), "Data found",Toast.LENGTH_SHORT).show();
 
@@ -92,6 +99,19 @@ public class SearchData extends AppCompatActivity {
                 // check if cursor return data or not (data found in db or not)
                 if(cursor.getCount() < 1)
                 {
+                    // empty all result
+                    resID.setText("");
+                    resName.setText("");
+                    resIC.setText("");
+                    resDOB.setText("");
+                    resAddress.setText("");
+                    resProgram.setText("");
+                    resPhone.setText("");
+                    resEmail.setText("");
+
+                    // hide edit button
+                    btnEdit.setVisibility(View.GONE);
+                    
                     // show toast message
                     Toast.makeText(getApplicationContext(), "No data found",Toast.LENGTH_SHORT).show();
                 }
@@ -115,6 +135,9 @@ public class SearchData extends AppCompatActivity {
                     resProgram.setText(program);
                     resPhone.setText(phone);
                     resEmail.setText(email);
+
+                    // show edit button
+                    btnEdit.setVisibility(View.VISIBLE);
 
                     // show toast message
                     Toast.makeText(getApplicationContext(), "Data found",Toast.LENGTH_SHORT).show();
