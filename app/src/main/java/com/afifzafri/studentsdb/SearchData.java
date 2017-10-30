@@ -25,6 +25,10 @@ public class SearchData extends AppCompatActivity {
 
         mydb = new DBHelper(this);
 
+        // get intent and data passed
+        Intent intentPage = getIntent();
+        String intstudID = intentPage.getStringExtra("STUD_ID");
+
         final EditText sid = (EditText)findViewById(R.id.editSearch);
         ImageButton btnSearch = (ImageButton)findViewById(R.id.btnSearch);
         ImageButton btnEdit = (ImageButton)findViewById(R.id.btnEdit);
@@ -36,6 +40,41 @@ public class SearchData extends AppCompatActivity {
         final TextView resProgram = (TextView)findViewById(R.id.resProgram);
         final TextView resPhone = (TextView)findViewById(R.id.resPhone);
         final TextView resEmail = (TextView)findViewById(R.id.resEmail);
+
+        // check if intent send an id value, populate the result
+        if(intstudID != null)
+        {
+            // access cursor data
+            Cursor cursor = mydb.searchData(intstudID);
+            cursor.moveToFirst();
+
+            String id = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_ID));
+            String name = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_NAME));
+            String ic = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_IC));
+            String dob = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_DOB));
+            String address = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_ADDRESS));
+            String program = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_PROGRAM));
+            String phone = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_PHONE));
+            String email = cursor.getString(cursor.getColumnIndex(DBHelper.COLUMN_EMAIL));
+
+            //append all the data
+            resID.setText(id);
+            resName.setText(name);
+            resIC.setText(ic);
+            resDOB.setText(dob);
+            resAddress.setText(address);
+            resProgram.setText(program);
+            resPhone.setText(phone);
+            resEmail.setText(email);
+
+            // show toast message
+            Toast.makeText(getApplicationContext(), "Data found",Toast.LENGTH_SHORT).show();
+
+            // close cursor
+            if (!cursor.isClosed())  {
+                cursor.close();
+            }
+        }
 
         // action when search button clicked
         btnSearch.setOnClickListener(new View.OnClickListener() {
