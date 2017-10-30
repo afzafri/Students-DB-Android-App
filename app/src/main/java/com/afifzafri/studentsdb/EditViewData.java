@@ -1,7 +1,9 @@
 package com.afifzafri.studentsdb;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -83,23 +85,43 @@ public class EditViewData extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // get input text values
-                String id = editStudID.getText().toString();
-                String names = editName.getText().toString();
-                String ics = editIC.getText().toString();
-                String dobs = editDOB.getText().toString();
-                String addr = editAddress.getText().toString();
-                String prog = editProgram.getText().toString();
-                String phones = editPhone.getText().toString();
-                String emails = editEmail.getText().toString();
+                final String id = editStudID.getText().toString();
+                final String names = editName.getText().toString();
+                final String ics = editIC.getText().toString();
+                final String dobs = editDOB.getText().toString();
+                final String addr = editAddress.getText().toString();
+                final String prog = editProgram.getText().toString();
+                final String phones = editPhone.getText().toString();
+                final String emails = editEmail.getText().toString();
 
-                if(mydb.updateData(id,names,ics,dobs,addr,prog,phones,emails))
-                {
-                    Toast.makeText(getApplicationContext(), "Data updated successfully",Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
-                }
+                // Create dialog box, ask confirmation before proceed
+                AlertDialog.Builder alert = new AlertDialog.Builder(EditViewData.this);
+                alert.setTitle("Update");
+                alert.setMessage("Are you sure you want to update data?");
+                // set positive button, yes etc
+                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(mydb.updateData(id,names,ics,dobs,addr,prog,phones,emails))
+                        {
+                            Toast.makeText(getApplicationContext(), "Data updated successfully",Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                        }
+                        dialog.dismiss();
+                    }
+                });
+                // set negative button, no etc
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alert.show(); // show alert message
             }
         });
 
@@ -107,15 +129,35 @@ public class EditViewData extends AppCompatActivity {
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id = editStudID.getText().toString(); // get id
-                if(mydb.deleteData(id))
-                {
-                    Toast.makeText(getApplicationContext(), "Data deleted successfully",Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
-                }
+                final String id = editStudID.getText().toString(); // get id
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(EditViewData.this);
+                alert.setTitle("Delete");
+                alert.setMessage("Are you sure you want to delete?");
+                // set positive button, yes etc
+                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(mydb.deleteData(id))
+                        {
+                            Toast.makeText(getApplicationContext(), "Data deleted successfully",Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                        }
+                        dialog.dismiss();
+                    }
+                });
+                // set negative button, no etc
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                alert.show(); // show alert message
             }
         });
     }
