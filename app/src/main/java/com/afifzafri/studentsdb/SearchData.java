@@ -34,6 +34,7 @@ public class SearchData extends AppCompatActivity {
         ImageButton btnSearch = (ImageButton)findViewById(R.id.btnSearch);
         ImageButton btnCall = (ImageButton)findViewById(R.id.btnCall);
         ImageButton btnMsg = (ImageButton)findViewById(R.id.btnMsg);
+        ImageButton btnEmail = (ImageButton)findViewById(R.id.btnEmail);
         final ImageButton btnEdit = (ImageButton)findViewById(R.id.btnEdit);
         final TextView resID = (TextView)findViewById(R.id.resStudID);
         final TextView resName = (TextView)findViewById(R.id.resName);
@@ -189,6 +190,16 @@ public class SearchData extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Uri uri = Uri.parse("smsto:" + resPhone.getText().toString());
+                Intent i = new Intent(Intent.ACTION_SENDTO, uri);
+                startActivity(Intent.createChooser(i, ""));
+            }
+        });
+
+        // open email app
+        btnEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("mailto:" + resEmail.getText().toString());
                 Intent i = new Intent(Intent.ACTION_SENDTO, uri);
                 startActivity(Intent.createChooser(i, ""));
             }
