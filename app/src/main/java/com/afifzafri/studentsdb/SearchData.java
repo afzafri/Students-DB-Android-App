@@ -32,10 +32,10 @@ public class SearchData extends AppCompatActivity {
 
         final EditText sid = (EditText)findViewById(R.id.editSearch);
         ImageButton btnSearch = (ImageButton)findViewById(R.id.btnSearch);
-        ImageButton btnCall = (ImageButton)findViewById(R.id.btnCall);
-        ImageButton btnMsg = (ImageButton)findViewById(R.id.btnMsg);
-        ImageButton btnEmail = (ImageButton)findViewById(R.id.btnEmail);
-        ImageButton btnMap = (ImageButton)findViewById(R.id.btnMap);
+        final ImageButton btnCall = (ImageButton)findViewById(R.id.btnCall);
+        final ImageButton btnMsg = (ImageButton)findViewById(R.id.btnMsg);
+        final ImageButton btnEmail = (ImageButton)findViewById(R.id.btnEmail);
+        final ImageButton btnMap = (ImageButton)findViewById(R.id.btnMap);
         final ImageButton btnEdit = (ImageButton)findViewById(R.id.btnEdit);
         final TextView resID = (TextView)findViewById(R.id.resStudID);
         final TextView resName = (TextView)findViewById(R.id.resName);
@@ -46,8 +46,12 @@ public class SearchData extends AppCompatActivity {
         final TextView resPhone = (TextView)findViewById(R.id.resPhone);
         final TextView resEmail = (TextView)findViewById(R.id.resEmail);
 
-        // hide edit button
+        // hide buttons
         btnEdit.setVisibility(View.GONE);
+        btnCall.setVisibility(View.GONE);
+        btnMsg.setVisibility(View.GONE);
+        btnEmail.setVisibility(View.GONE);
+        btnMap.setVisibility(View.GONE);
 
         // check if intent send an id value, populate the result
         if(intstudID != null)
@@ -79,8 +83,12 @@ public class SearchData extends AppCompatActivity {
             resPhone.setText(phone);
             resEmail.setText(email);
 
-            // show edit button
+            // show buttons
             btnEdit.setVisibility(View.VISIBLE);
+            btnCall.setVisibility(View.VISIBLE);
+            btnMsg.setVisibility(View.VISIBLE);
+            btnEmail.setVisibility(View.VISIBLE);
+            btnMap.setVisibility(View.VISIBLE);
 
             // show toast message
             Toast.makeText(getApplicationContext(), "Data found",Toast.LENGTH_SHORT).show();
@@ -116,6 +124,10 @@ public class SearchData extends AppCompatActivity {
 
                     // hide edit button
                     btnEdit.setVisibility(View.GONE);
+                    btnCall.setVisibility(View.GONE);
+                    btnMsg.setVisibility(View.GONE);
+                    btnEmail.setVisibility(View.GONE);
+                    btnMap.setVisibility(View.GONE);
                     
                     // show toast message
                     Toast.makeText(getApplicationContext(), "No data found",Toast.LENGTH_SHORT).show();
@@ -141,8 +153,12 @@ public class SearchData extends AppCompatActivity {
                     resPhone.setText(phone);
                     resEmail.setText(email);
 
-                    // show edit button
+                    // show buttons
                     btnEdit.setVisibility(View.VISIBLE);
+                    btnCall.setVisibility(View.VISIBLE);
+                    btnMsg.setVisibility(View.VISIBLE);
+                    btnEmail.setVisibility(View.VISIBLE);
+                    btnMap.setVisibility(View.VISIBLE);
 
                     // show toast message
                     Toast.makeText(getApplicationContext(), "Data found",Toast.LENGTH_SHORT).show();
