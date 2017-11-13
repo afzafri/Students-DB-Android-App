@@ -17,6 +17,7 @@
         </activity>
         <activity
             android:name=".InsertData"
+            android:label="Insert Data"
             android:parentActivityName=".MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -26,6 +27,7 @@
         </activity>
         <activity
             android:name=".ViewData"
+            android:label="View Data"
             android:parentActivityName=".MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -35,6 +37,7 @@
         </activity>
         <activity
             android:name=".SearchData"
+            android:label="Search Data"
             android:parentActivityName=".MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -44,6 +47,7 @@
         </activity>
         <activity
             android:name=".EditViewData"
+            android:label="Edit Data"
             android:parentActivityName=".ViewData">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
